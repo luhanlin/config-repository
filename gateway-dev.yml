@@ -1,6 +1,41 @@
 system:
   type: GATEWAY
 
+## 使用线程池隔离策略配置
+#hystrix:
+#  threadpool:
+#    default:
+#      coreSize: 100
+#      maximumSize: 5000
+#      allowMaximumSizeToDivergeFromCoreSize: true
+#      maxQueueSize: -1
+
+zuul:
+  ## 修改为线程池隔离策略
+#  ribbonIsolationStrategy: THREAD
+  ## Zuul默认是使用信号量隔离，并且信号量的大小是100
+  semaphore:
+    max-semaphores: 5000
+  filter:
+    root: filter
+    interval: 5
+  ignored-services:
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
+  prefix: api
+  routes:
+    demo-service:
+      path: /demo/**
+      strip-prefix: true
+      sensitiveHeaders:
+      serviceId: demo-service
+    feign-service:
+      path: /feign/**
+      strip-prefix: true
+      sensitiveHeaders:
+      serviceId: feign-service
+
 # =========== redission ==================
 redisson:
   singleServerConfig: true
@@ -47,3 +82,4 @@ logging:
     com.netflix: WARN
     org.springframework.web: WARN
     com.luhanlin: DEBUG
+#  config: classpath:log4j2.yml
