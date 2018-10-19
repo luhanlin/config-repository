@@ -147,3 +147,10 @@ custom:
     id: 100
     name: luhanlin
     version: 1.0.9
+
+#Setting logging levels
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.luhanlin: DEBUG
