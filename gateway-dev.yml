@@ -76,6 +76,25 @@ spring:
     port: 6379 # Redis server port.
     ssl: false # Whether to enable SSL support.
     timeout: 0 # Connection timeout.
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      #将采样比例设置为 1.0，也就是全部都需要。默认是 0.1
+      probability: 0.5
+  zipkin:
+    base-url: http://localhost:9411/
+    enabled: false
+    sender:
+      type: RABBIT
+  rabbitmq:
+    addresses: 127.0.0.1
+    port: 5672
+    username: test
+    password: ENC(+TwOCrlhlNd5lft9jAybxw==)
+    virtual-host: sleuth
+
 
 #Setting logging levels
 logging:
