@@ -19,7 +19,7 @@ zuul:
   filter:
     root: filter
     interval: 5
-  ignored-services:
+  ignored-services: demo-service
   host:
     connect-timeout-millis: 10000
     socket-timeout-millis: 60000
@@ -28,12 +28,12 @@ zuul:
   routes:
     demo-service:
       path: /demo/**
-      strip-prefix: true
-      sensitiveHeaders:
+      ## 默认为true，转发是不带请求前缀，此处为demo
+#      strip-prefix: true
+      sensitiveHeaders: # Access-Control-Allow-Origin,Access-Control-Allow-Methods
       serviceId: demo-service
     feign-service:
-      path: /feign/**
-      strip-prefix: false
+      path: /feign-service/**
       sensitiveHeaders:
       serviceId: feign-service
 
