@@ -89,10 +89,10 @@ spring:
     sender:
       type: RABBIT
   rabbitmq:
-    addresses: 127.0.0.1
+    host: localhost
     port: 5672
     username: test
-    password: ENC(+TwOCrlhlNd5lft9jAybxw==)
+    password: test
     virtual-host: sleuth
 
 
