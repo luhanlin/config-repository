@@ -19,7 +19,7 @@ zuul:
   filter:
     root: filter
     interval: 5
-  ignored-services: demo-service
+  ignored-services: demo-service,config-server
   host:
     connect-timeout-millis: 10000
     socket-timeout-millis: 60000
