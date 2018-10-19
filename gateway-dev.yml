@@ -33,7 +33,7 @@ zuul:
       serviceId: demo-service
     feign-service:
       path: /feign/**
-      strip-prefix: true
+      strip-prefix: false
       sensitiveHeaders:
       serviceId: feign-service
 
