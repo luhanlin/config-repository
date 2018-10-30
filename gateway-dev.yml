@@ -40,6 +40,10 @@ zuul:
       path: /turbine/**
       sensitiveHeaders:
       serviceId: turbine
+    monitor:
+      path: /monitor/**
+      sensitiveHeaders:
+      serviceId: monitor
 
 # =========== redission ==================
 redisson:
