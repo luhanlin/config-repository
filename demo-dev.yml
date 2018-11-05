@@ -131,6 +131,20 @@ spring:
     ssl: false # Whether to enable SSL support.
     timeout: 0 # Connection timeout.
 
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      #将采样比例设置为 1.0，也就是全部都需要。默认是 0.1
+      probability: 1
+  zipkin:
+    base-url: http://192.168.8.111:9411/
+    enabled: false
+    sender:
+      type: RABBIT
+
+
 #druid  stat 监控配置  用于跟 datasource.filters 包含 stat 时搭配使用 不需要时注释掉
 druid.stat:
     #黑名单
