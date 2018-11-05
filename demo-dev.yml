@@ -140,7 +140,7 @@ spring:
       probability: 1
   zipkin:
     base-url: http://192.168.8.111:9411/
-    enabled: false
+#    enabled: false
     sender:
       type: web
 
