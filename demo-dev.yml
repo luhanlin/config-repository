@@ -142,7 +142,7 @@ spring:
     base-url: http://192.168.8.111:9411/
     enabled: false
     sender:
-      type: RABBIT
+      type: web
 
 
 #druid  stat 监控配置  用于跟 datasource.filters 包含 stat 时搭配使用 不需要时注释掉
